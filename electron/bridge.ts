@@ -1,6 +1,6 @@
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer, shell } from 'electron';
 
-const api = {
+export const api = {
   /**
    * Here you can expose functions to the renderer process
    * so they can interact with the main (electron) side
@@ -8,7 +8,6 @@ const api = {
    *
    * The function below can accessed using `window.Main.sayHello`
    */
-
   sendMessage: (message: string) => {
     ipcRenderer.send('message', message);
   },
@@ -19,8 +18,13 @@ const api = {
   on: (channel: string, callback: Function) => {
     ipcRenderer.on(channel, (_, data) => callback(data));
   },
+
+  openExternal: (url: string) => {
+    const parsedUrl = new URL(url);
+    if (['https:', 'http:', 'mailto:'].includes(parsedUrl.protocol)) {
+      shell.openExternal(url);
+    }
+  },
 };
 
 contextBridge.exposeInMainWorld('Main', api);
-
-export default api;

@@ -1,6 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-
-import { defaultTheme } from '../src/styles/theme';
+// import path from 'path';
 
 let mainWindow: BrowserWindow | null;
 
@@ -10,7 +9,7 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 // const assetsPath =
 //   process.env.NODE_ENV === 'production'
 //     ? process.resourcesPath
-//     : app.getAppPath()
+//     : app.getAppPath();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -18,8 +17,8 @@ function createWindow() {
     width: 375,
     height: 667,
     resizable: false,
-    // backgroundColor: defaultTheme.colors.orange,
     webPreferences: {
+      nativeWindowOpen: true,
       nodeIntegration: true,
       contextIsolation: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,

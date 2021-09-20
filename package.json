@@ -18,6 +18,7 @@
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
     "react-icons": "^4.2.0",
+    "react-router-dom": "^5.3.0",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
@@ -32,15 +33,17 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
-    "@electron/remote": "^2.0.1",
-    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "@types/copy-webpack-plugin": "^8.0.1",
     "@types/node": "^16.9.2",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.9",
     "@types/styled-components": "^5.1.14",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
     "electron": "^14.0.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -51,13 +54,14 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "node-loader": "^2.0.0",
     "prettier": "^2.4.1",
     "typescript": "^4.4.3"
   },
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "Meu Tempo",
+        "name": "Meu Tempo - Gerenciador de Foco",
         "executableName": "meutempo",
         "icon": "assets/icon",
         "extraResource": [
@@ -89,7 +93,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "Meu Tempo"
+            "name": "Meu Tempo - Gerenciador de Foco"
           }
         },
         {
